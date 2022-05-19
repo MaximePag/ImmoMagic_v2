@@ -10,5 +10,5 @@
 /API/Homestead.yaml
 /API/npm-debug.log
 /API/yarn-error.log
-/API/.idea
+API/.idea
 /API/.vscode
