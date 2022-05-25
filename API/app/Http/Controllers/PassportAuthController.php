@@ -25,7 +25,7 @@ class PassportAuthController extends Controller
             'password' => 'required|min:8',
             'phoneNumber' => 'required|min:10',
             'address' => 'required',
-            'zipCode' => 'required|min:5',
+            'postCode' => 'required|min:5|max:10',
             'city' => 'required',
 
         ]);
@@ -37,7 +37,7 @@ class PassportAuthController extends Controller
             'password' => bcrypt($request->password),
             'phoneNumber' => $request->phoneNumber,
             'address' => $request->address,
-            'zipCode' => $request->zipCode,
+            'postCode' => $request->postCode,
             'city' => $request->city,
             'role_id' => $request->role_id = 1,
             'archived' => $request->archived = false,
@@ -49,6 +49,10 @@ class PassportAuthController extends Controller
         return response()->json(['token' => $token], 200);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function login(Request $request)
     {
         $data = [
@@ -59,7 +63,7 @@ class PassportAuthController extends Controller
         if (auth()->attempt($data)) {
             $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
 
-            return response()->json(200, ['token' => $token]);
+            return response()->json(['token' => $token], 200);
         }else{
             return response()->json(['error' => 'unauthorized'], 401);
         }

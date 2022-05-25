@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'address',
-        'zipCode',
+        'postCode',
         'city',
         'archived',
         'role_id',
