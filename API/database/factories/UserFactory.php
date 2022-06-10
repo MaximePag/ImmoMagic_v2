@@ -52,7 +52,7 @@ class UserFactory extends Factory
             return [
                 'email_verified_at' => null,
                 'archived' => $this->faker->archived(false),
-                'role_id' => $this->faker->role_id(1),
+                'g5e1D_roles_id' => $this->faker->role_id(1),
             ];
         });
     }

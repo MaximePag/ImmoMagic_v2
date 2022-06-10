@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('g5e1D_favorites', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('g5e1D_realEstate_id')
+            $table->foreignId('g5e1D_real_estate_id')
                 ->unsigned();
-            $table->foreignId('g5e1D_user_id')
+            $table->foreignId('g5e1D_users_id')
                 ->unsigned();
             $table->timestamps();
         });

@@ -26,8 +26,8 @@ return new class extends Migration
             $table->string('city');
             $table->boolean('archived')->default(0);
             $table->rememberToken();
-            $table->unsignedBigInteger('role_id')->default(1);
-            $table->foreign('role_id')->references('id')->on('g5e1D_users');
+            //$table->unsignedBigInteger('g5e1D_roles_id')->default(1);
+            $table->foreignId('g5e1D_roles_id')->references('id')->on('g5e1D_users');
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('g5e1D_type_of_contract', function (Blueprint $table) {
+        Schema::create('g5e1D_type_of_contracts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('g5e1D_type_of_contract');
+        Schema::dropIfExists('g5e1D_type_of_contracts');
     }
 };

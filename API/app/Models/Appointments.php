@@ -11,5 +11,10 @@ class Appointments extends Model
 
     protected $table = 'g5e1D_appointments';
 
-    protected $fillable = [ 'dateHour', 'notes', 'comments'];
+    protected $fillable = [ 'dateHour', 'notes', 'comments', 'g5e1D_user_id', 'g5e1D_realEstate_id', 'g5e1D_appointmentsSubject_id'];
+
+    public function appointmentsSubjects()
+    {
+        return $this->belongsTo(AppointmentsSubjects::class);
+    }
 }

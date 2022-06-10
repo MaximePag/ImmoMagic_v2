@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
+use App\Http\Controllers\Controller;
 
 class PassportAuthController extends Controller
 {
@@ -16,7 +17,7 @@ class PassportAuthController extends Controller
      * @return JsonResponse
      * @throws ValidationException
      */
-    public function register(Request $request)
+    public function register(Request $request): JsonResponse
     {
         $this->validate($request, [
             'lastname' => 'required|min:3',
@@ -27,6 +28,7 @@ class PassportAuthController extends Controller
             'address' => 'required',
             'postCode' => 'required|min:5|max:10',
             'city' => 'required',
+            'g5e1D_roles_id' => 'required',
 
         ]);
 
@@ -39,21 +41,23 @@ class PassportAuthController extends Controller
             'address' => $request->address,
             'postCode' => $request->postCode,
             'city' => $request->city,
-            'role_id' => $request->role_id = 1,
             'archived' => $request->archived = false,
+            'g5e1D_roles_id' => $request->g5e1D_roles_id,
 
         ]);
 
         $token = $user->createToken('LaravelAuthApp')->accessToken;
 
-        return response()->json(['token' => $token], 200);
+        return response()->json(['message' =>'user register successfully!',
+                                'token' => $token
+        ], 200);
     }
 
     /**
      * @param Request $request
      * @return JsonResponse
      */
-    public function login(Request $request)
+    public function login(Request $request): JsonResponse
     {
         $data = [
             'email' => $request->email,
@@ -68,4 +72,17 @@ class PassportAuthController extends Controller
             return response()->json(['error' => 'unauthorized'], 401);
         }
     }
+
+    /**
+     * @return JsonResponse
+     */
+    /*public function userProfile()
+    {
+        $user = auth()->user();
+
+        return response()->json(['message' => 'User saved successfully!',
+        'user' => $user
+        ], 200);
+
+    }*/
 }

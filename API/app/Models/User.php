@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @method static create(array $array)
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -31,7 +34,7 @@ class User extends Authenticatable
         'postCode',
         'city',
         'archived',
-        'role_id',
+        'roles_id',
     ];
 
 
@@ -64,9 +67,9 @@ class User extends Authenticatable
         return $this->hasMany(Appointments::class);
     }
 
-    public function role()
+    public function Role()
     {
-        return $this->hasMany(Role::class);
+        return $this->hasOne(Role::class);
     }
 
     public function Documents()

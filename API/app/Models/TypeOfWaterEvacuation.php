@@ -9,7 +9,11 @@ class TypeOfWaterEvacuation extends Model
 {
     use HasFactory;
 
-    protected $table = 'g5eD_typeOfWaterEvacuations';
+    protected $table = 'g5e1D_type_of_water_evacuations';
 
     protected $fillable = ['name'];
+
+    public function RealEstates(){
+        return $this->belongTo(RealEstate::class);
+    }
 }

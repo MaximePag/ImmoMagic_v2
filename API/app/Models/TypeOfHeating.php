@@ -9,7 +9,11 @@ class TypeOfHeating extends Model
 {
     use HasFactory;
 
-    protected $table = 'g5e1D_typeOfHeating';
+    protected $table = 'g5e1D_type_of_heatings';
 
     protected $fillable = ['name'];
+
+    public function RealEstates(){
+        return $this->belongTo(RealEstate::class);
+    }
 }

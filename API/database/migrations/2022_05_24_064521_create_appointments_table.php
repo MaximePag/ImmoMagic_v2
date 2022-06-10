@@ -18,13 +18,13 @@ return new class extends Migration
             $table->dateTime('dateHour');
             $table->text('notes');
             $table->text('comments');
-            $table->foreignId('g5e1D_user_id')
+            $table->foreignId('g5e1D_users_id')
                 ->unsigned();
 
-            $table->foreignId('g5e1D_realEstate_id')
+            $table->foreignId('g5e1D_real_estate_id')
                 ->unsigned();
 
-            $table->foreignId('g5e1D_appointmentsSubject_id')
+            $table->foreignId('g5e1D_appointments_subjects_id')
                 ->unsigned();
             /*$table->foreignId('agentsCanHaveAppointments')
                 ->constrained()

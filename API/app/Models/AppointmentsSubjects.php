@@ -9,8 +9,14 @@ class AppointmentsSubjects extends Model
 {
     use HasFactory;
 
-    protected $table = 'g5e1D_appointmentsSubjects';
+
+    protected $table = 'g5e1D_appointments_subjects';
 
     protected $fillable = ['name'];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointments::class);
+    }
 }
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('title');
             $table->text('path');
             $table->boolean('archived');
-            $table->foreignId('g5e1D_user_id')
+            $table->foreignId('g5e1D_users_id')
                 ->unsigned();
             $table->timestamps();
         });

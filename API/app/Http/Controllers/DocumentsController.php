@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Documents;
+use Illuminate\Validation\ValidationException;
 
 class DocumentsController extends Controller
 {
@@ -19,7 +21,7 @@ class DocumentsController extends Controller
 
     public function show($id)
     {
-        $document = auth()->user()->posts()->find($id);
+        $document = auth()->user()->documents()->find($id);
 
         if (!$document) {
             return response()->json([
@@ -34,6 +36,11 @@ class DocumentsController extends Controller
         ], 400);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws ValidationException
+     */
     public function store(Request $request)
     {
         $this->validate($request, [

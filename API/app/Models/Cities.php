@@ -11,5 +11,10 @@ class Cities extends Model
 
     protected $table = 'g5e1D_cities';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'postalCode'];
+
+    public function RealEstates(){
+        return $this->belongTo(RealEstate::class);
+    }
+
 }

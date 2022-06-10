@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('g5e1D_pictures', function (Blueprint $table) {
             $table->id();
             $table->string('path');
-            $table->foreignId('g5e1D_realEstate_id')
+            $table->foreignId('g5e1D_real_estate_id')
                 ->unsigned();
             $table->timestamps();
         });
