@@ -9,6 +9,17 @@
 
 ## About Laravel
 
+<p>Les API REST<br>
+REST (Representational State Transfer) est un style d’architecture pour constituer des API. Pour Laravel une API REST est :</p>
+
+<ol>
+    <li>organisée autours de ressources</li>
+    <li>sans persistance (aucune session)</li>
+    <li>orientée client-serveur</li>
+    <li>pouvant être mis en cache (donc une requête doit retourner toujours les mêmes résultats)</li>
+    <li>retourner du JSON</li>
+    </ol>
+
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
