@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('g5e1d_documents', function (Blueprint $table) {
+        Schema::create('favorites', function (Blueprint $table) {
             $table->id();
-            $table->text('title');
-            $table->text('path');
-            $table->boolean('archived');
-            $table->foreignId('g5e1D_users_id');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('g5e1S_documents');
+        Schema::dropIfExists('favorites');
     }
 };

@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
 
+
 class PassportAuthController extends Controller
 {
 
@@ -26,7 +27,7 @@ class PassportAuthController extends Controller
             'password' => 'required|min:8',
             'phoneNumber' => 'required|min:10',
             'address' => 'required',
-            'postCode' => 'required|min:5|max:10',
+            'postalCode' => 'required|min:5|max:10',
             'city' => 'required',
             'g5e1D_roles_id' => 'required',
 
@@ -39,7 +40,7 @@ class PassportAuthController extends Controller
             'password' => bcrypt($request->password),
             'phoneNumber' => $request->phoneNumber,
             'address' => $request->address,
-            'postCode' => $request->postCode,
+            'postalCode' => $request->postalCode,
             'city' => $request->city,
             'archived' => $request->archived = false,
             'g5e1D_roles_id' => $request->g5e1D_roles_id,
@@ -76,13 +77,14 @@ class PassportAuthController extends Controller
     /**
      * @return JsonResponse
      */
-    /*public function userProfile()
+    public function userInfo()
     {
         $user = auth()->user();
 
-        return response()->json(['message' => 'User saved successfully!',
-        'user' => $user
+        return response()->json([
+            'message' => 'User saved successfully!',
+            'user' => $user
         ], 200);
 
-    }*/
+    }
 }

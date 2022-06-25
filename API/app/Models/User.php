@@ -31,10 +31,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'address',
-        'postCode',
+        'postalCode',
         'city',
         'archived',
-        'roles_id',
+        'g5e1D_roles_id',
     ];
 
 

@@ -32,21 +32,12 @@ return new class extends Migration
             $table->integer('DPE');
             $table->boolean('archived');
             $table->string('reference');
-            $table->foreignId('g5e1D_type_of_real_estates_id')
-                ->references('id')
-                ->on('g5e1D_real_estate');
-            $table->foreignId('g5e1D_type_of_heatings_id')
-                ->references('id')
-                ->on('g5e1D_real_estate');
-            $table->foreignId('g5e1D_type_of_water_evacuations_id')
-                ->references('id')
-                ->on('g5e1D_real_estate');
-            $table->foreignId('g5e1D_type_of_contracts_id')
-                ->references('id')
-                ->on('g5e1D_real_estate');
-            $table->foreignId('g5e1D_cities_id')
-                ->references('id')
-                ->on('g5e1D_real_estate');
+            $table->foreignId('g5e1D_type_of_real_estates_id');
+            $table->foreignId('g5e1D_type_of_heatings_id');
+            $table->foreignId('g5e1D_type_of_water_evacuations_id');
+            $table->foreignId('g5e1D_type_of_contracts_id');
+            $table->foreignId('g5e1D_cities_id');
+            $table->foreignId('g5e1D_pictures_id');
 
             $table->timestamps();
         });

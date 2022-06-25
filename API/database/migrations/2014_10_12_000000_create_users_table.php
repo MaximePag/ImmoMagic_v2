@@ -22,12 +22,12 @@ return new class extends Migration
             $table->string('password');
             $table->string('phoneNumber');
             $table->string('address');
-            $table->string('postCode');
+            $table->string('postalCode');
             $table->string('city');
             $table->boolean('archived')->default(0);
             $table->rememberToken();
-            //$table->unsignedBigInteger('g5e1D_roles_id')->default(1);
             $table->foreignId('g5e1D_roles_id')->references('id')->on('g5e1D_users');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

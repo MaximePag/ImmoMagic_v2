@@ -11,5 +11,14 @@ class Documents extends Model
 
     protected $table = 'g5e1D_documents';
 
-    protected $fillable = [ 'title', 'path', 'archived'];
+    protected $fillable = [
+        'title',
+        'path',
+        'archived',
+        'g5e1D_users_id'
+    ];
+
+    public function User(){
+        return $this->belongTo(User::class);
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Controllers\TypeOfContractController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,7 +33,8 @@ class RealEstate extends Model
         'g5e1D_type_of_heatings_id',
         'g5e1D_type_of_water_evacuations_id',
         'g5e1D_type_of_contracts_id',
-        'g5e1D_cities_id'
+        'g5e1D_cities_id',
+        'g5e1D_pictures_id',
     ];
 
     public function TypeOfRealEstate()
@@ -50,12 +50,21 @@ class RealEstate extends Model
         return $this->hasOne(TypeOfWaterEvacuation::class);
     }
 
-    public function TypeOfContracts(){
+    public function TypeOfContract(){
         return $this->hasOne(TypeOfContract::class);
     }
 
     public function City(){
         return $this->hasOne(Cities::class);
+    }
+
+    public function Pictures(){
+        return $this->hasMany(Picture::class);
+    }
+
+    public function Favorites()
+    {
+        return $this->hasMany(Favorites::class);
     }
 
 }

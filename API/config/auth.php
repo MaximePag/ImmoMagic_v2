@@ -45,6 +45,11 @@ return [
             'driver' => 'passport',
             'provider' => 'users',
         ],
+
+        /*'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer'. $accessToken,
+        ]*/
     ],
 
     /*

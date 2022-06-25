@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TypeOfContract;
+use App\Models\Picture;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-
 use Illuminate\Validation\ValidationException;
 
-class TypeOfContractController extends Controller
+class PictureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,9 @@ class TypeOfContractController extends Controller
      */
     public function index()
     {
-        $typeOfContract = TypeOfContract::all();
+        $pictures = Picture::all();
 
-        return response()->json($typeOfContract);
+        return response()->json($pictures);
     }
 
     /**
@@ -32,25 +31,25 @@ class TypeOfContractController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
+            'path' => 'required'
         ]);
 
-        $typeOfContract = TypeOfContract::create([
-            'name' => $request->name,
+        $picture = Picture::create([
+            'path' => $request->path
         ]);
 
-        return response()->json($typeOfContract,201);
+        return response()->json($picture, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param TypeOfContract $typeOfContract
+     * @param Picture $picture
      * @return JsonResponse
      */
-    public function show(TypeOfContract $typeOfContract)
+    public function show(Picture $picture)
     {
-        return \response()->json($typeOfContract);
+        return response()->json($picture);
     }
 
     /**
@@ -64,27 +63,26 @@ class TypeOfContractController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
+            'path' => 'required'
         ]);
 
-        $typeOfContract = TypeOfContract::where('id', $id)
-            ->update([
-            'name' => $request->name,
+        $picture = Picture::where('id', $id)->update([
+            'path' => $request->path,
         ]);
 
-            return \response()->json($typeOfContract);
+        return response()->json($picture);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param TypeOfContract $typeOfContract
+     * @param Picture $picture
      * @return JsonResponse
      */
-    public function destroy(TypeOfContract $typeOfContract)
+    public function destroy(Picture $picture)
     {
-        $typeOfContract->delete();
+        $picture->delete();
 
-        return \response()->json();
+            return response()->json();
     }
 }

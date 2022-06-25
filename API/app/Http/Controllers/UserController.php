@@ -17,7 +17,11 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return \response()->json($users);
+        return response()->json($users);
+        /**
+         * response()->json($data, $code) => $data = le body et $code = le code de statut de la réponse HTTP
+         * retourne une réponse avec le header « Content-Type : applicaton/json ».
+         */
     }
 
     /**
@@ -31,13 +35,13 @@ class UserController extends Controller
     {
         //validation of data
         $this->validate($request, [
-            'lastname' => 'required|min:3',
-            'firstname' => 'required|min:3',
+            'lastname' => 'required|min:3|max:100',
+            'firstname' => 'required|min:3|max:100',
             'email' => 'required|email',
             'password' => 'required|min:8',
             'phoneNumber' => 'required|min:10',
             'address' => 'required',
-            'postCode' => 'required|min:5|max:10',
+            'postalCode' => 'required|min:5|max:10',
             'city' => 'required',
             'g5e1D_roles_id' => 'required',
 
@@ -56,7 +60,7 @@ class UserController extends Controller
             'g5e1D_roles_id' => $request->g5e1D_roles_id,
         ]);
 
-        return \response()->json($user, 201);
+        return response()->json($user, 201);
     }
 
     /**
@@ -67,7 +71,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return \response()->json($user);
+        return response()->json($user);
     }
 
     /**
@@ -81,13 +85,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'lastname' => 'required|min:3',
-            'firstname' => 'required|min:3',
+            'lastname' => 'required|min:3|max:100',
+            'firstname' => 'required|min:3|max:100',
             'email' => 'required|email',
             'password' => 'required|min:8',
             'phoneNumber' => 'required|min:10',
             'address' => 'required',
-            'postCode' => 'required|min:5|max:10',
+            'postalCode' => 'required|min:5|max:10',
             'city' => 'required',
             'g5e1D_roles_id' => 'required',
 

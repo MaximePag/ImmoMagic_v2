@@ -52,7 +52,8 @@ class RealEstateController extends Controller
             'g5e1D_type_of_heatings_id' => 'required',
             'g5e1D_type_of_water_evacuations_id' => 'required',
             'g5e1D_type_of_contracts_id' => 'required',
-            'g5e1D_cities_id' => 'required'
+            'g5e1D_cities_id' => 'required',
+            'g5e1D_pictures_id' => 'nullable'
         ]);
 
         $realEstate = RealEstate::create([
@@ -78,6 +79,7 @@ class RealEstateController extends Controller
             'g5e1D_type_of_water_evacuations_id' => $request->g5e1D_type_of_water_evacuations_id,
             'g5e1D_type_of_contracts_id' => $request->g5e1D_type_of_contracts_id,
             'g5e1D_cities_id' => $request->g5e1D_cities_id,
+            'g5e1D_pictures_id' => $request->g5e1D_pictures_id,
 
         ]);
 
@@ -127,7 +129,8 @@ class RealEstateController extends Controller
             'g5e1D_type_of_heatings_id' => 'required',
             'g5e1D_type_of_water_evacuations_id' => 'required',
             'g5e1D_type_of_contracts_id' => 'required',
-            'g5e1D_cities_id' => 'required'
+            'g5e1D_cities_id' => 'required',
+            'g5e1D_pictures_id' => 'nullable',
         ]);
 
         $realEstate = RealEstate::where('id', $id)->update([
@@ -148,13 +151,12 @@ class RealEstateController extends Controller
             'DPE' => $request->DPE,
             'archived' => $request->archived = false,
             'reference' => $request->reference,
-            'g5e1D_type_of_real_estates_id' => $request->g5e1D_typye_of_real_estate,
+            'g5e1D_type_of_real_estates_id' => $request->g5e1D_type_of_real_estates_id,
             'g5e1D_type_of_heatings_id' => $request->g5e1D_type_of_heatings_id,
             'g5e1D_type_of_water_evacuations_id' => $request->g5e1D_type_of_water_evacuation_id,
             'g5e1D_type_of_contracts_id' => $request->g5e1D_type_of_contracts_id,
             'g5e1D_cities_id' => $request->g5e1D_cities_id,
-
-
+            'g5e1D_pictures_id' => $request->g5e1D_pictures_id,
         ]);
 
         return response()->json($realEstate);
@@ -166,7 +168,7 @@ class RealEstateController extends Controller
      * @param RealEstate $realEstate
      * @return JsonResponse
      */
-    public function destroy(RealEstate $realEstate)
+    public function destroy(RealEstate $realEstate): JsonResponse
     {
         $realEstate->delete();
 
